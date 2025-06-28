@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sumanth Kondapaka | Data Analyst</title>
+  <!-- Font Awesome CDN FIRST -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .page-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+    }
+
+    nav {
+      background: #111827;
+      padding: 20px 0;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 100vw;
+      margin: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 60px;
+    }
+    .nav-link {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 0 0 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      background: none;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 24px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+      background: #00cdac;
+      color: #fff !important;
+      text-decoration: none;
+      outline: none;
+    }
+    .btn-main.nav-link {
+      background: #02aab0;
+      color: #fff !important;
+      margin-left: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-main.nav-link:hover,
+    .btn-main.nav-link:focus {
+      background: #00cdac;
+      color: #fff !important;
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      margin-left: 40px;
+      cursor: pointer;
+    }
+
+    #introduction {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%),
+        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80');
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
+      color: #e0f7fa;
+      text-align: center;
+      padding-top: 120px;
+      min-height: 100vh;
+    }
+    #introduction h1 {
+      font-family: 'Montserrat', 'Poppins', sans-serif;
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow:
+        0 4px 24px #00cdac,
+        0 2px 8px #000000cc,
+        2px 2px 12px #000,
+        0 0 2px #00cdac;
+      background: none;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      background-clip: initial;
+      filter: none;
+    }
+    #introduction p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+      text-shadow: 1px 1px 6px #00000044;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #e0f7fa;
+    }
+    #introduction .intro-highlight {
+      font-size: 1.25rem;
+      color: #b2fefa;
+      font-weight: 500;
+      display: block;
+      margin-top: 18px;
+      line-height: 1.7;
+    }
+
+    .btn-main {
+      display: inline-block;
+      background: #02aab0;
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0;
+      margin-bottom: 0;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-main:hover {
+      background: #00cdac;
+      color: #fff !important;
+    }
+
+    /* About Section */
+    #about {
+      background: #fff;
+      color: #1f2937;
+      text-align: center;
+      padding-top: 120px;
+    }
+
+    #about h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    #about p {
+      font-size: 1.7rem;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-weight: 400;
+    }
+
+    /* Projects Section */
+    #projects {
+      background: #f3f8fa;
+      color: #1f2937;
+      text-align: center;
+      padding-top: 120px;
+    }
+    #projects h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      padding: 32px 24px;
+      max-width: 340px;
+      min-width: 260px;
+      margin: 0 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+    .card p {
+      margin: 0 0 8px 0;
+      font-size: 1.1rem;
+    }
+    .certification {
+      align-items: center;
+      text-align: center;
+      font-weight: 600;
+      color: #02aab0;
+      background: #f3f8fa;
+    }
+
+    /* Resume Page */
+    #resume {
+      background: #fff;
+      color: #1f2937;
+      text-align: center;
+      padding-top: 120px;
+    }
+    #resume h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    #resume p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      font-weight: 400;
+    }
+    #resume a {
+      margin-bottom: 20px;
+    }
+    iframe {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      margin-top: 30px;
+      background: #fff;
+    }
+
+    /* Certifications & Contact Page */
+    #certifications {
+      background: #fff;
+      color: #1f2937;
+      text-align: center;
+      padding-top: 120px;
+    }
+    #certifications h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    #certifications ul {
+      font-size: 1.3rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    #certifications li {
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    .footer h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .footer p {
+      font-size: 1.3rem;
+      margin: 5px 0;
+    }
+    .social-links {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .social-links a {
+      margin: 0 18px;
+      color: #02aab0;
+      font-size: 2.5rem;
+      transition: color 0.2s;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .social-links a:hover {
+      color: #00cdac;
+    }
+
+    .contact-fullwidth {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background: #111827;
+      padding: 40px 0 0 0;
+      border-radius: 0;
+      text-align: center;
+      margin-bottom: 0 !important;
+    }
+    .contact-fullwidth h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .contact-fullwidth .social-links a {
+      color: #02aab0;
+    }
+    .contact-fullwidth .social-links a:hover {
+      color: #00cdac;
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 10px;
+      }
+      nav a {
+        margin: 10px 0 0 0;
+        font-size: 1rem;
+      }
+      #introduction h1 {
+        font-size: 2.5rem;
+      }
+      #introduction p, #about h2, #about p, #projects h2, #certifications h2 {
+        font-size: 1.1rem;
+      }
+      .page-section {
+        padding: 40px 10px;
+      }
+      #introduction, #about, #projects, #certifications, #contact {
+        padding-top: 80px;
+      }
+      .contact-fullwidth {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 30px 0;
+      }
+    }
+    @media (max-width: 900px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .card {
+        width: 90vw;
+        max-width: 98vw;
+      }
+      .nav-container a:not(.btn-main) { display: none; }
+      .menu-btn { display: inline-block; }
+      .nav-container.open a { display: block; margin: 10px 0 0 0; }
+      .nav-container.open .btn-main { display: block; margin: 10px 0 0 0; }
+    }
+
+    .card.project h3,
+    .card.project h3 a {
+      color: #00cdac;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .card.project h3 a:hover {
+      color: #029e85;
+      text-decoration: underline;
+    }
+
+    /* Card hover effect: scale up and black shadow */
+    .card.project {
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    }
+    .card.project:hover {
+      transform: scale(1.07);
+      box-shadow: 0 12px 40px 0 rgba(0,0,0,0.35);
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="#about" class="nav-link">About ME</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#resume" class="nav-link">Resume</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#contact-details" class="btn-main nav-link" style="margin-left:30px;">
+        <i class="fa fa-envelope"></i> Contact Us
+      </a>
+      <!-- Menu Button for mobile -->
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu" style="margin-left:40px;">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Introduction Page -->
+  <section id="introduction" class="page-section">
+    <h1>KALA SURYA KIRAN</h1>
+    <p>
+      Turning data into actionable insights.
+      <span class="intro-highlight">
+        Data Analyst skilled in <b>Power BI</b>, <b>SQL</b>, <b>Excel</b>, <b>Python</b>, and <b>Generative AI</b>.<br>
+        Passionate about building dashboards, automating analytics, and helping businesses make data-driven decisions.<br>
+        Explore my portfolio to see real-world projects, certifications, and more!
+      </span>
+    </p>
+    <a href="#about" class="btn-main">Know More About Me</a>
+  </section>
+
+  <!-- About Me Page -->
+  <section id="about" class="page-section">
+    <h2>About Me</h2>
+    <p>
+      I'm Kala Surya Kiran, a data-driven and detail-oriented graduate in Computer Science 
+      and Engineering with strong hands-on experience in SQL, Excel, Power BI, and Python 
+      for data analysis and visualization. I specialize in transforming raw data into 
+      actionable business insights through dashboards and reports. With growing expertise 
+      in Generative AI tools like ChatGPT, LangChain, and Google Gemini, I enjoy automating 
+      analytical workflows and delivering smarter decision-making solutions. 
+      I’m passionate about combining traditional analytics with AI to solve real-world 
+      problems and create meaningful impact.
+    </p>
+  </section>
+
+  <!-- Projects Page -->
+  <section id="projects" class="page-section">
+    <h2>Projects</h2>
+    <div class="cards-container">
+      <div class="card project">
+        <h3>
+          <a href="https://github.com/kalasurykiran/E-Commerece-Brazilan-Analysis-in-Q4-Oct-Nov-Dec" target="_blank" class="project-link">
+            E-Commerce Q4 Analysis <i class="fa fa-external-link"></i>
+          </a>
+        </h3>
+        <p>Tools: SQL, Excel, Power BI</p>
+        <p>This project focused on analyzing Q4 sales data from the Olist Brazilian e-commerce dataset using SQL, Excel, Python, and Power BI. I cleaned and merged monthly sales data, created interactive dashboards, and uncovered insights on data.</p>
+      </div>
+      <div class="card project">
+        <h3>
+          <a href="https://github.com/kalasurykiran/Sample-SuperStore-Report" target="_blank" class="project-link">
+            Sample SuperStore Dashboard <i class="fa fa-external-link"></i>
+          </a>
+        </h3>
+        <p>Tools: Excel, Power BI</p>
+        <p>Used Excel and Power BI to visualize sales and profit by region and category.
+Created an interactive dashboard with DAX-driven insights.
+Highlighted loss-making segments and delivery inefficiencies.
+Identified trends in shipping modes and their impact on profit margins.
+
+</p>
+      </div>
+      <div class="card project">
+        <h3>
+          <a href="https://github.com/kalasurykiran/The-Chocolate-Report-Predictive-Analysis-Using-AI" target="_blank" class="project-link">
+             The Chocolate Report Predictive Analysis Using AI<i class="fa fa-external-link"></i>
+          </a>
+        </h3>
+        <p>Tools: ChatGPT, Google Gemini API,Power BI, Excel, FAISS</p>
+        <p>Built an AI-powered dashboard using Excel and Power BI to analyze chocolate shipment 
+          trends, automate visual reporting, and uncover seasonal demand, profit variations, 
+          and order cancellations.</p>
+      </div>
+      <div class="card project">
+        <h3>
+          <a href="https://github.com/kalasurykiran/Zepto-Grocery-Report" target="_blank" class="project-link">
+            Zepto Inventory Analysis <i class="fa fa-external-link"></i>
+          </a>
+        </h3>
+        <p>Tools: Excel, Power BI, SQL, Python</p>
+        <p>Developed an end-to-end grocery delivery performance dashboard using Excel and Power BI to analyze delivery time, order volumes, and cancellation trends, enabling data-driven improvements in last-mile logistics.</p>
+      </div>
+      <div class="card project">
+        <h3>
+          <a href="https://github.com/kalasurykiran/Facial-Emotion-Detection" target="_blank" class="project-link">
+            Facial Emotion Detection <i class="fa fa-external-link"></i>
+          </a>
+        </h3>
+        <p>Tools: Python, OpenCV, TensorFlow</p>
+        <p>Developed a real-time facial emotion detection system using Python and OpenCV. The model identifies emotions such as happy, sad, and surprised, then maps them to matching emojis. This project showcases the use of computer vision for enhancing user interaction through AI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Page -->
+  <section id="resume" class="page-section">
+    <h2>Resume</h2>
+    <p style="font-size:1.3rem; max-width:700px; margin-bottom:30px;">
+      📄 Download my latest resume or view it online to explore my experience, education, certifications, and technical skills.
+Stay updated with my most recent projects and professional journey.
+    </p>
+    <a href="https://docs.google.com/document/d/1phew0YKH55j-M9lZ3eUFyzt7GSxVrNew8QIQfK9Fkwc/edit?usp=sharing" target="_blank" class="btn-main" style="margin-bottom:20px;">
+      <i class="fa fa-external-link"></i> View Resume Online
+    </a>
+    <a href="https://docs.google.com/document/d/1phew0YKH55j-M9lZ3eUFyzt7GSxVrNew8QIQfK9Fkwc/export?format=pdf" target="_blank" class="btn-main" style="margin-bottom:20px; margin-left:20px;">
+      <i class="fa fa-download"></i> Download PDF
+    </a>
+    <br>
+  </section>
+
+  <!-- Certifications & Contact Page -->
+  <section id="certifications" class="page-section" style="padding-bottom:0; margin-bottom:0;">
+    <h2>Certifications</h2>
+    <div class="cards-container">
+      <div class="card certification">
+        <a href="https://www.coursera.org/account/accomplishments/verify/5HMCMG999LBW" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Data Analysis with Python – IBM-Coursera <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+      <div class="card certification">
+        <a href="https://drive.google.com/file/d/19BQxDphtitl3-JBl1LHQP98QLvAntxNo/view?usp=drive_link" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Complete Data Analytics – LearnTube.ai by CareerNinja <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+      <div class="card certification">
+        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_M6Xpd59YfKrNLxf43_1750932725139_completion_certificate.pdf" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Deloitte Data Analytics Job Simulation – Forage <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+      <div class="card certification">
+        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_M6Xpd59YfKrNLxf43_1750996628939_completion_certificate.pdf" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Tata GenAI Powered Data Analytics Job Simulation – Forage <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+      <div class="card certification">
+        <a href="https://media.geeksforgeeks.org/courses/certificates/8791e1d246759b3b31e559dcf4da88ff.pdf" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Mastering Generative AI and ChatGPT – GeekForGeeks <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+      <div class="card certification">
+        <a href="https://drive.google.com/file/d/1zKBbDjcKxXdwG-CNG0ZqBvl0TyR__WX8/view?usp=sharing" target="_blank" style="text-decoration:none; color:inherit;">
+          <p>Data Analytics Bootcamp – AlexDataAnalyst-Youtube <i class="fa fa-external-link"></i></p>
+        </a>
+      </div>
+    </div>
+    <div style="height:40px;"></div>
+    <div class="contact-fullwidth" id="contact-details">
+      <h2>Contact Us</h2>
+      <div class="social-links">
+        <a href="mailto:kalasuryakiran12@gmail.com" target="_blank" title="Email">
+          <i class="fa fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kala-suryakiran" target="_blank" title="LinkedIn">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/kalasuryakiran" target="_blank" title="GitHub">
+          <i class="fa fa-github"></i>
+        </a>
+      </div>
+      <p style="margin:0; color:#fff; padding-top:20px;">&copy; 2025 Sumanth Kondapaka. All rights reserved.</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-container').classList.toggle('open');
+    }
+    // Always scroll to the top (home/introduction) on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      // Remove any hash from the URL without reloading
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    });
+  </script>
+</body>
+</html>
